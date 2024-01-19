@@ -13,6 +13,7 @@ use Closure;
 use DecodeLabs\Exceptional;
 use DecodeLabs\Tagged as Html;
 use DecodeLabs\Tagged\Markup;
+use Stringable;
 use Throwable;
 
 trait ReferenceTrait
@@ -33,7 +34,7 @@ trait ReferenceTrait
      * Create object if valid
      */
     public static function instantiate(
-        ?string $value
+        string|Stringable|null $value
     ): static {
         if ($output = static::tryInstantiate($value)) {
             return $output;
@@ -43,7 +44,7 @@ trait ReferenceTrait
     }
 
     public static function tryInstantiate(
-        ?string $value
+        string|Stringable|null $value
     ): ?static {
         $output = new static($value);
 
@@ -58,7 +59,7 @@ trait ReferenceTrait
      * Generate and validate
      */
     public static function isValid(
-        ?string $value
+        string|Stringable|null $value
     ): bool {
         return (bool)static::tryInstantiate($value);
     }
@@ -67,7 +68,7 @@ trait ReferenceTrait
      * Is reference in canonical format?
      */
     public static function isCanonical(
-        ?string $value
+        string|Stringable|null $value
     ): bool {
         if (!$ref = static::tryInstantiate($value)) {
             return false;
@@ -80,7 +81,7 @@ trait ReferenceTrait
      * Generate and convert to canonical
      */
     public static function canonicalize(
-        ?string $value
+        string|Stringable|null $value
     ): ?string {
         if (!$ref = static::tryInstantiate($value)) {
             return null;
@@ -93,7 +94,7 @@ trait ReferenceTrait
      * Generate and format
      */
     public static function normalize(
-        ?string $value
+        string|Stringable|null $value
     ): ?string {
         if (!$ref = static::tryInstantiate($value)) {
             return null;
@@ -106,7 +107,7 @@ trait ReferenceTrait
      * Generate and format as HTML
      */
     public static function format(
-        ?string $value
+        string|Stringable|null $value
     ): ?Markup {
         if (!$ref = static::tryInstantiate($value)) {
             return null;
@@ -226,7 +227,7 @@ trait ReferenceTrait
      * Init with any value
      */
     public function __construct(
-        ?string $value
+        string|Stringable|null $value
     ) {
         $this->raw = (string)$value;
         $this->canonical = $this->prepareCanonical($this->raw);
