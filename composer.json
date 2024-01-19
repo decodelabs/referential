@@ -1,0 +1,34 @@
+{
+    "name": "decodelabs/referential",
+    "description": "A framework for finding, parsing, inspecting and formatting reference IDs",
+    "type": "library",
+    "keywords": [ ],
+    "license": "MIT",
+    "authors": [ {
+            "name": "Tom Wright",
+            "email": "tom@inflatablecookie.com"
+        } ],
+    "require": {
+        "php": "^8.1",
+        "decodelabs/exceptional": "^0.4.4"
+    },
+    "require-dev": {
+        "decodelabs/glitch": "^0.18.11",
+        "decodelabs/tagged": "^0.14.12",
+        "decodelabs/phpstan-decodelabs": "^0.6.7",
+        "decodelabs/guidance": "^0.1.8"
+    },
+    "suggest": {
+        "decodelabs/tagged": "For formatting as HTML"
+    },
+    "autoload": {
+        "psr-4": {
+            "DecodeLabs\\Referential\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
+    }
+}
