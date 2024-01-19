@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Referential\Reference;
 
-use DecodeLabs\Guidance\Uuid;
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
 use DecodeLabs\Tagged as Html;
@@ -32,81 +31,6 @@ class Guid implements Reference
     public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
     public const EXAMPLE = 'd2516786-28da-c4d4-f701-30df4b2159d9';
 
-
-    /**
-     * Create object if valid
-     */
-    public static function instantiate(
-        string|Uuid|null $value
-    ): static {
-        if ($value instanceof Uuid) {
-            $value = (string)$value;
-        }
-
-        return static::parentInstantiate($value);
-    }
-
-    public static function tryInstantiate(
-        string|Uuid|null $value
-    ): ?static {
-        if ($value instanceof Uuid) {
-            $value = (string)$value;
-        }
-
-        return static::parentTryInstantiate($value);
-    }
-
-    /**
-     * Generate and validate
-     */
-    public static function isValid(
-        string|Uuid|null $value
-    ): bool {
-        if ($value instanceof Uuid) {
-            $value = (string)$value;
-        }
-
-        return static::parentIsValid($value);
-    }
-
-    /**
-     * Generate and convert to canonical
-     */
-    public static function canonicalize(
-        string|Uuid|null $value
-    ): ?string {
-        if ($value instanceof Uuid) {
-            $value = (string)$value;
-        }
-
-        return static::parentCanonicalize($value);
-    }
-
-    /**
-     * Generate and format
-     */
-    public static function normalize(
-        string|Uuid|null $value
-    ): ?string {
-        if ($value instanceof Uuid) {
-            $value = (string)$value;
-        }
-
-        return static::parentNormalize($value);
-    }
-
-    /**
-     * Generate and format as HTML
-     */
-    public static function format(
-        string|Uuid|null $value
-    ): ?Markup {
-        if ($value instanceof Uuid) {
-            $value = (string)$value;
-        }
-
-        return static::parentFormat($value);
-    }
 
 
     /**

@@ -11,6 +11,7 @@ namespace DecodeLabs\Referential;
 
 use Closure;
 use DecodeLabs\Tagged\Markup;
+use Stringable;
 
 interface Reference
 {
@@ -18,34 +19,34 @@ interface Reference
      * @return static
      */
     public static function instantiate(
-        ?string $value
+        string|Stringable|null $value
     ): Reference;
 
     /**
      * @return static|null
      */
     public static function tryInstantiate(
-        ?string $value
+        string|Stringable|null $value
     ): ?Reference;
 
     public static function isValid(
-        ?string $value
+        string|Stringable|null $value
     ): bool;
 
     public static function isCanonical(
-        ?string $value
+        string|Stringable|null $value
     ): bool;
 
     public static function canonicalize(
-        ?string $value
+        string|Stringable|null $value
     ): ?string;
 
     public static function normalize(
-        ?string $value
+        string|Stringable|null $value
     ): ?string;
 
     public static function format(
-        ?string $value
+        string|Stringable|null $value
     ): ?Markup;
 
     public static function getCanonicalPattern(
@@ -64,7 +65,7 @@ interface Reference
     public static function isGeneric(): bool;
 
     public function __construct(
-        ?string $value
+        string|Stringable|null $value
     );
 
     public function validate(): bool;
