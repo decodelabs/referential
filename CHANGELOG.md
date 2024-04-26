@@ -1,3 +1,5 @@
+* Updated dependency list
+
 ## v0.1.1 (2024-01-19)
 * Added Stringable support to Reference interface
 

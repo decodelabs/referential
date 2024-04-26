@@ -13,7 +13,6 @@
         "decodelabs/exceptional": "^0.4.4"
     },
     "require-dev": {
-        "decodelabs/glitch": "^0.18.11",
         "decodelabs/tagged": "^0.14.12",
         "decodelabs/phpstan-decodelabs": "^0.6.7"
     },
