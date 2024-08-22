@@ -18,11 +18,11 @@ class Iban implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = self::NORMAL_PATTERN;
-    public const CANONICAL_MAX_LENGTH = self::NORMAL_MAX_LENGTH;
-    public const NORMAL_PATTERN = '/^([A-Z]{2}[ \-]?[0-9]{2})(?=(?:[ \-]?[A-Z0-9]){9,30}$)((?:[ \-]?[A-Z0-9]{3,5}){2,7})([ \-]?[A-Z0-9]{1,3})?$/';
-    public const NORMAL_MAX_LENGTH = 50;
-    public const EXAMPLE = 'BE71 0961 2345 6769 45';
+    protected const CanonicalPattern = self::NormalPattern;
+    protected const CanonicalMaxLength = self::NormalMaxLength;
+    protected const NormalPattern = '/^([A-Z]{2}[ \-]?[0-9]{2})(?=(?:[ \-]?[A-Z0-9]){9,30}$)((?:[ \-]?[A-Z0-9]{3,5}){2,7})([ \-]?[A-Z0-9]{1,3})?$/';
+    protected const NormalMaxLength = 50;
+    protected const Example = 'BE71 0961 2345 6769 45';
 
     /**
      * Combine match parts

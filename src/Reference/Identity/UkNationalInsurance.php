@@ -18,11 +18,11 @@ class UkNationalInsurance implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z]{2})([0-9]{2})([0-9]{2})([0-9]{2})([A-Z])$/';
-    public const CANONICAL_MAX_LENGTH = 9;
-    public const NORMAL_PATTERN = '/^([a-zA-Z]{2}) ?([0-9]{2}) ?([0-9]{2}) ?([0-9]{2}) ?([a-zA-Z])$/';
-    public const NORMAL_MAX_LENGTH = 13;
-    public const EXAMPLE = 'TN311258F';
+    protected const CanonicalPattern = '/^([A-Z]{2})([0-9]{2})([0-9]{2})([0-9]{2})([A-Z])$/';
+    protected const CanonicalMaxLength = 9;
+    protected const NormalPattern = '/^([a-zA-Z]{2}) ?([0-9]{2}) ?([0-9]{2}) ?([0-9]{2}) ?([a-zA-Z])$/';
+    protected const NormalMaxLength = 13;
+    protected const Example = 'TN311258F';
 
     /**
      * Combine match parts

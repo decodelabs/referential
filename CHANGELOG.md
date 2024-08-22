@@ -1,3 +1,4 @@
+* Converted consts to protected PascalCase
 * Updated Tagged dependency
 * Updated dependency list
 

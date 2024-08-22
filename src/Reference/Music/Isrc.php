@@ -18,11 +18,11 @@ class Isrc implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z]{2})([A-Z0-9]{3})([0-9]{2})([A-Z0-9]{5})$/';
-    public const CANONICAL_MAX_LENGTH = 12;
-    public const NORMAL_PATTERN = '/^[a-zA-Z]{2}\-?[a-zA-Z0-9]{3}\-?[0-9]{2}\-?[a-zA-Z0-9]{3}\-?[a-zA-Z0-9]{2}$/';
-    public const NORMAL_MAX_LENGTH = 16;
-    public const EXAMPLE = 'USRC17607839';
+    protected const CanonicalPattern = '/^([A-Z]{2})([A-Z0-9]{3})([0-9]{2})([A-Z0-9]{5})$/';
+    protected const CanonicalMaxLength = 12;
+    protected const NormalPattern = '/^[a-zA-Z]{2}\-?[a-zA-Z0-9]{3}\-?[0-9]{2}\-?[a-zA-Z0-9]{3}\-?[a-zA-Z0-9]{2}$/';
+    protected const NormalMaxLength = 16;
+    protected const Example = 'USRC17607839';
 
     /**
      * Combine match parts

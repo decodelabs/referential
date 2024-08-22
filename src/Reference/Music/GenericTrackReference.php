@@ -18,11 +18,11 @@ class GenericTrackReference implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z0-9]{3,})$/';
-    public const CANONICAL_MAX_LENGTH = 32;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = '123456';
+    protected const CanonicalPattern = '/^([A-Z0-9]{3,})$/';
+    protected const CanonicalMaxLength = 32;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = '123456';
 
     /**
      * Convert canonical to html value

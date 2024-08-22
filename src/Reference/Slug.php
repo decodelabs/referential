@@ -18,11 +18,11 @@ class Slug implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([a-z0-9-]{3,})$/';
-    public const CANONICAL_MAX_LENGTH = 128;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'interesting-article-title';
+    protected const CanonicalPattern = '/^([a-z0-9-]{3,})$/';
+    protected const CanonicalMaxLength = 128;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'interesting-article-title';
 
     /**
      * Prepare canonical string

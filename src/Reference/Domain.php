@@ -18,11 +18,11 @@ class Domain implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([^@\s\.]+\.[^@\s]{2,})$/';
-    public const CANONICAL_MAX_LENGTH = 2048;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'example.com';
+    protected const CanonicalPattern = '/^([^@\s\.]+\.[^@\s]{2,})$/';
+    protected const CanonicalMaxLength = 2048;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'example.com';
 
     /**
      * Prepare canonical string

@@ -18,11 +18,11 @@ class Swift implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([a-zA-Z]{4})([a-zA-Z]{2})([0-9a-zA-Z]{2})([0-9a-zA-Z]{3})?$/';
-    public const CANONICAL_MAX_LENGTH = 11;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'BOFAUS3N';
+    protected const CanonicalPattern = '/^([a-zA-Z]{4})([a-zA-Z]{2})([0-9a-zA-Z]{2})([0-9a-zA-Z]{3})?$/';
+    protected const CanonicalMaxLength = 11;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'BOFAUS3N';
 
 
     /**

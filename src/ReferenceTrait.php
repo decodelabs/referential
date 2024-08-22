@@ -18,11 +18,11 @@ use Throwable;
 
 trait ReferenceTrait
 {
-    // const CANONICAL_PATTERN = '';
-    // const CANONICAL_MAX_LENGTH = 0;
-    // const NORMAL_PATTERN = '';
-    // const NORMAL_MAX_LENGTH = 0;
-    // const EXAMPLE = '';
+    // protected const CanonicalPattern = '';
+    // protected const CanonicalMaxLength = 0;
+    // protected const NormalPattern = '';
+    // protected const NormalMaxLength = 0;
+    // protected const Example = '';
 
     protected string $raw;
     protected ?string $canonical = null;
@@ -124,11 +124,11 @@ trait ReferenceTrait
     public static function getCanonicalPattern(
         bool $wrapped
     ): string {
-        if (!defined('static::CANONICAL_PATTERN')) {
+        if (!defined('static::CanonicalPattern')) {
             throw Exceptional::Setup('Canonical pattern has not been defined');
         }
 
-        $output = static::CANONICAL_PATTERN;
+        $output = static::CanonicalPattern;
 
         if (!$wrapped) {
             $output = substr((string)$output, 1, -1);
@@ -142,11 +142,11 @@ trait ReferenceTrait
      */
     public static function getCanonicalMaxLength(): int
     {
-        if (!defined('static::CANONICAL_MAX_LENGTH')) {
+        if (!defined('static::CanonicalMaxLength')) {
             throw Exceptional::Setup('Canonical max length has not been defined');
         }
 
-        return static::CANONICAL_MAX_LENGTH;
+        return static::CanonicalMaxLength;
     }
 
     /**
@@ -155,11 +155,11 @@ trait ReferenceTrait
     public static function getNormalPattern(
         bool $wrapped
     ): string {
-        if (!defined('static::NORMAL_PATTERN')) {
+        if (!defined('static::NormalPattern')) {
             throw Exceptional::Setup('Normal pattern has not been defined');
         }
 
-        $output = static::NORMAL_PATTERN;
+        $output = static::NormalPattern;
 
         if (!$wrapped) {
             $output = substr((string)$output, 1, -1);
@@ -173,11 +173,11 @@ trait ReferenceTrait
      */
     public static function getNormalMaxLength(): int
     {
-        if (!defined('static::NORMAL_MAX_LENGTH')) {
+        if (!defined('static::NormalMaxLength')) {
             throw Exceptional::Setup('Normal max length has not been defined');
         }
 
-        return static::NORMAL_MAX_LENGTH;
+        return static::NormalMaxLength;
     }
 
 
@@ -186,11 +186,11 @@ trait ReferenceTrait
      */
     public static function getExample(): static
     {
-        if (!defined('static::EXAMPLE')) {
+        if (!defined('static::Example')) {
             throw Exceptional::Setup('Example has not been defined');
         }
 
-        return new static(static::EXAMPLE);
+        return new static(static::Example);
     }
 
 

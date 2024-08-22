@@ -18,11 +18,11 @@ class UkSortCode implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([0-9]{2})([0-9]{2})([0-9]{2})$/';
-    public const CANONICAL_MAX_LENGTH = 6;
-    public const NORMAL_PATTERN = '/^([0-9]{2})[ -]?([0-9]{2})[ -]?([0-9]{2})$/';
-    public const NORMAL_MAX_LENGTH = 8;
-    public const EXAMPLE = '12-34-56';
+    protected const CanonicalPattern = '/^([0-9]{2})([0-9]{2})([0-9]{2})$/';
+    protected const CanonicalMaxLength = 6;
+    protected const NormalPattern = '/^([0-9]{2})[ -]?([0-9]{2})[ -]?([0-9]{2})$/';
+    protected const NormalMaxLength = 8;
+    protected const Example = '12-34-56';
 
     /**
      * Combine match parts
