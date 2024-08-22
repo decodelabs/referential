@@ -16,6 +16,9 @@ use DecodeLabs\Tagged\Markup;
 use Stringable;
 use Throwable;
 
+/**
+ * @phpstan-require-implements Reference
+ */
 trait ReferenceTrait
 {
     // protected const CanonicalPattern = '';
