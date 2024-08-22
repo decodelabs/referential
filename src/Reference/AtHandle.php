@@ -18,11 +18,11 @@ class AtHandle implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^@([^@\s]+)$/';
-    public const CANONICAL_MAX_LENGTH = 256;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = '@username';
+    protected const CanonicalPattern = '/^@([^@\s]+)$/';
+    protected const CanonicalMaxLength = 256;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = '@username';
 
     /**
      * Prepare canonical string

@@ -18,11 +18,11 @@ class RoutingNumber implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([0-9]{4})([0-9]{4})([0-9]{1})$/';
-    public const CANONICAL_MAX_LENGTH = 9;
-    public const NORMAL_PATTERN = '/^([0-9]{4}) ?([0-9]{4}) ?([0-9]{1})$/';
-    public const NORMAL_MAX_LENGTH = 11;
-    public const EXAMPLE = '061000104';
+    protected const CanonicalPattern = '/^([0-9]{4})([0-9]{4})([0-9]{1})$/';
+    protected const CanonicalMaxLength = 9;
+    protected const NormalPattern = '/^([0-9]{4}) ?([0-9]{4}) ?([0-9]{1})$/';
+    protected const NormalMaxLength = 11;
+    protected const Example = '061000104';
 
 
     /**

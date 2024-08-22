@@ -18,11 +18,11 @@ class CatalogueNumber implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z])([A-Z0-9 ]{2,})$/';
-    public const CANONICAL_MAX_LENGTH = 32;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'XCD023';
+    protected const CanonicalPattern = '/^([A-Z])([A-Z0-9 ]{2,})$/';
+    protected const CanonicalMaxLength = 32;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'XCD023';
 
     /**
      * Prepare canonical string

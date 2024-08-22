@@ -18,11 +18,11 @@ class Upc implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([0-9]{12,13})$/';
-    public const CANONICAL_MAX_LENGTH = 13;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = '0799439112766';
+    protected const CanonicalPattern = '/^([0-9]{12,13})$/';
+    protected const CanonicalMaxLength = 13;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = '0799439112766';
 
     /**
      * Convert canonical to html value

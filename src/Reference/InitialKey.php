@@ -18,11 +18,11 @@ class InitialKey implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z])([A-Z0-9]{2,})$/';
-    public const CANONICAL_MAX_LENGTH = 12;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'MTR1';
+    protected const CanonicalPattern = '/^([A-Z])([A-Z0-9]{2,})$/';
+    protected const CanonicalMaxLength = 12;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'MTR1';
 
     /**
      * Convert canonical to html value

@@ -18,11 +18,11 @@ class IsrcRange implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z]{2})([A-Z0-9]{3})$/';
-    public const CANONICAL_MAX_LENGTH = 5;
-    public const NORMAL_PATTERN = '/^[a-zA-Z]{2}\-?[a-zA-Z0-9]{3}\*?$/';
-    public const NORMAL_MAX_LENGTH = 7;
-    public const EXAMPLE = 'GBMYV';
+    protected const CanonicalPattern = '/^([A-Z]{2})([A-Z0-9]{3})$/';
+    protected const CanonicalMaxLength = 5;
+    protected const NormalPattern = '/^[a-zA-Z]{2}\-?[a-zA-Z0-9]{3}\*?$/';
+    protected const NormalMaxLength = 7;
+    protected const Example = 'GBMYV';
 
     /**
      * Combine match parts

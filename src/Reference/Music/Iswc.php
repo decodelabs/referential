@@ -18,11 +18,11 @@ class Iswc implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([A-Z])([0-9]{3})([0-9]{3})([0-9]{3})([0-9])$/';
-    public const CANONICAL_MAX_LENGTH = 11;
-    public const NORMAL_PATTERN = '/^([a-zA-Z])\-?([0-9]{3})\.?([0-9]{3})\.?([0-9]{3})\-?([0-9])$/';
-    public const NORMAL_MAX_LENGTH = 15;
-    public const EXAMPLE = 'T3452468001';
+    protected const CanonicalPattern = '/^([A-Z])([0-9]{3})([0-9]{3})([0-9]{3})([0-9])$/';
+    protected const CanonicalMaxLength = 11;
+    protected const NormalPattern = '/^([a-zA-Z])\-?([0-9]{3})\.?([0-9]{3})\.?([0-9]{3})\-?([0-9])$/';
+    protected const NormalMaxLength = 15;
+    protected const Example = 'T3452468001';
 
     /**
      * Combine match parts

@@ -18,11 +18,11 @@ class PrsTunecode implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([0-9]{4,6})([a-zA-Z0-9])([a-zA-Z])$/';
-    public const CANONICAL_MAX_LENGTH = 8;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = '083657CV';
+    protected const CanonicalPattern = '/^([0-9]{4,6})([a-zA-Z0-9])([a-zA-Z])$/';
+    protected const CanonicalMaxLength = 8;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = '083657CV';
 
     /**
      * Prepare canonical string

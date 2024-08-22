@@ -25,11 +25,11 @@ class Guid implements Reference
         ReferenceTrait::format as parentFormat;
     }
 
-    public const CANONICAL_PATTERN = '/^([a-z0-9]{8})-?([a-z0-9]{4})-?([a-z0-9]{4})-?([a-z0-9]{4})-?([a-z0-9]{12})$/';
-    public const CANONICAL_MAX_LENGTH = 36;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'd2516786-28da-c4d4-f701-30df4b2159d9';
+    protected const CanonicalPattern = '/^([a-z0-9]{8})-?([a-z0-9]{4})-?([a-z0-9]{4})-?([a-z0-9]{4})-?([a-z0-9]{12})$/';
+    protected const CanonicalMaxLength = 36;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'd2516786-28da-c4d4-f701-30df4b2159d9';
 
 
 

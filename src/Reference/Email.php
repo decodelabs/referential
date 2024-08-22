@@ -18,11 +18,11 @@ class Email implements Reference
 {
     use ReferenceTrait;
 
-    public const CANONICAL_PATTERN = '/^([^@\s]+)(@)([^@\s\.]+\.[^@\s]+)$/';
-    public const CANONICAL_MAX_LENGTH = 2048;
-    public const NORMAL_PATTERN = self::CANONICAL_PATTERN;
-    public const NORMAL_MAX_LENGTH = self::CANONICAL_MAX_LENGTH;
-    public const EXAMPLE = 'test@example.com';
+    protected const CanonicalPattern = '/^([^@\s]+)(@)([^@\s\.]+\.[^@\s]+)$/';
+    protected const CanonicalMaxLength = 2048;
+    protected const NormalPattern = self::CanonicalPattern;
+    protected const NormalMaxLength = self::CanonicalMaxLength;
+    protected const Example = 'test@example.com';
 
     /**
      * Prepare canonical string
