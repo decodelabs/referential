@@ -1,3 +1,4 @@
+## v0.2.0 (2024-08-21)
 * Converted consts to protected PascalCase
 * Updated Tagged dependency
 * Updated dependency list
