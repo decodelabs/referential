@@ -1,5 +1,12 @@
+## v0.3.0 (2025-02-17)
 * Added @phpstan-require-implements constraints
+* Converted Html:: access to Element::create()
+* Updated dependencies
+* Upgraded PHPStan to v2
+* Tidied boolean logic
+* Fixed Exceptional syntax
 * Added PHP8.4 to CI workflow
+* Made PHP8.4 minimum version
 
 ## v0.2.0 (2024-08-21)
 * Converted consts to protected PascalCase

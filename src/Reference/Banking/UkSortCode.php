@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Banking;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class UkSortCode implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([0-9]{2})([0-9]{2})([0-9]{2})$/';
-    protected const CanonicalMaxLength = 6;
-    protected const NormalPattern = '/^([0-9]{2})[ -]?([0-9]{2})[ -]?([0-9]{2})$/';
-    protected const NormalMaxLength = 8;
-    protected const Example = '12-34-56';
+    public const string CanonicalPattern = '/^([0-9]{2})([0-9]{2})([0-9]{2})$/';
+    public const int CanonicalMaxLength = 6;
+    public const string NormalPattern = '/^([0-9]{2})[ -]?([0-9]{2})[ -]?([0-9]{2})$/';
+    public const int NormalMaxLength = 8;
+    public const string Example = '12-34-56';
 
     /**
      * Combine match parts
@@ -43,12 +43,12 @@ class UkSortCode implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.banking.uk-sort-code'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
-            yield Html::{'span.grammar'}('-');
-            yield Html::{'span.value'}($matches[1]);
-            yield Html::{'span.grammar'}('-');
-            yield Html::{'span.value'}($matches[2]);
+        return Element::create('samp.number.banking.uk-sort-code', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
+            yield Element::create('span.grammar', '-');
+            yield Element::create('span.value', $matches[1]);
+            yield Element::create('span.grammar', '-');
+            yield Element::create('span.value', $matches[2]);
         }, [
             'title' => $this->canonical
         ]);

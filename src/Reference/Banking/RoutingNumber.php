@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Banking;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class RoutingNumber implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([0-9]{4})([0-9]{4})([0-9]{1})$/';
-    protected const CanonicalMaxLength = 9;
-    protected const NormalPattern = '/^([0-9]{4}) ?([0-9]{4}) ?([0-9]{1})$/';
-    protected const NormalMaxLength = 11;
-    protected const Example = '061000104';
+    public const string CanonicalPattern = '/^([0-9]{4})([0-9]{4})([0-9]{1})$/';
+    public const int CanonicalMaxLength = 9;
+    public const string NormalPattern = '/^([0-9]{4}) ?([0-9]{4}) ?([0-9]{1})$/';
+    public const int NormalMaxLength = 11;
+    public const string Example = '061000104';
 
 
     /**
@@ -44,12 +44,12 @@ class RoutingNumber implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.banking.routing'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
+        return Element::create('samp.number.banking.routing', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
             yield ' ';
-            yield Html::{'span.value'}($matches[1]);
+            yield Element::create('span.value', $matches[1]);
             yield ' ';
-            yield Html::{'span.value'}($matches[2]);
+            yield Element::create('span.value', $matches[2]);
         });
     }
 }

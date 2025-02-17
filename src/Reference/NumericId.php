@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class NumericId implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([0-9]+)$/';
-    protected const CanonicalMaxLength = 32;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = '123456';
+    public const string CanonicalPattern = '/^([0-9]+)$/';
+    public const int CanonicalMaxLength = 32;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = '123456';
 
     /**
      * Convert canonical to html value
@@ -32,8 +32,8 @@ class NumericId implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.numeric-id'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
+        return Element::create('samp.number.numeric-id', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
         }, [
             'title' => $this->canonical
         ]);

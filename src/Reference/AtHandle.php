@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class AtHandle implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^@([^@\s]+)$/';
-    protected const CanonicalMaxLength = 256;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = '@username';
+    public const string CanonicalPattern = '/^@([^@\s]+)$/';
+    public const int CanonicalMaxLength = 256;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = '@username';
 
     /**
      * Prepare canonical string
@@ -48,8 +48,8 @@ class AtHandle implements Reference
     protected function prepareHtml(
         string $value
     ): Markup {
-        return Html::{'span.handle'}([
-            Html::{'span.grammar'}('@'),
+        return Element::create('span.handle', [
+            Element::create('span.grammar', '@'),
             $this->prepareNormalized($value)
         ], [
             'title' => $this->canonical

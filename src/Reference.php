@@ -15,6 +15,12 @@ use Stringable;
 
 interface Reference
 {
+    public const string CanonicalPattern = '';
+    public const int CanonicalMaxLength = 0;
+    public const string NormalPattern = '';
+    public const int NormalMaxLength = 0;
+    public const string Example = '';
+
     /**
      * @return static
      */

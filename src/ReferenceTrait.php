@@ -11,7 +11,8 @@ namespace DecodeLabs\Referential;
 
 use Closure;
 use DecodeLabs\Exceptional;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Buffer;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 use Stringable;
 use Throwable;
@@ -21,12 +22,6 @@ use Throwable;
  */
 trait ReferenceTrait
 {
-    // protected const CanonicalPattern = '';
-    // protected const CanonicalMaxLength = 0;
-    // protected const NormalPattern = '';
-    // protected const NormalMaxLength = 0;
-    // protected const Example = '';
-
     protected string $raw;
     protected ?string $canonical = null;
     protected ?string $formatted = null;
@@ -43,7 +38,9 @@ trait ReferenceTrait
             return $output;
         }
 
-        throw Exceptional::InvalidArgument('Value must not be null');
+        throw Exceptional::InvalidArgument(
+            message: 'Value must not be null'
+        );
     }
 
     public static function tryInstantiate(
@@ -128,7 +125,9 @@ trait ReferenceTrait
         bool $wrapped
     ): string {
         if (!defined('static::CanonicalPattern')) {
-            throw Exceptional::Setup('Canonical pattern has not been defined');
+            throw Exceptional::Setup(
+                message: 'Canonical pattern has not been defined'
+            );
         }
 
         $output = static::CanonicalPattern;
@@ -146,7 +145,9 @@ trait ReferenceTrait
     public static function getCanonicalMaxLength(): int
     {
         if (!defined('static::CanonicalMaxLength')) {
-            throw Exceptional::Setup('Canonical max length has not been defined');
+            throw Exceptional::Setup(
+                message: 'Canonical max length has not been defined'
+            );
         }
 
         return static::CanonicalMaxLength;
@@ -159,7 +160,9 @@ trait ReferenceTrait
         bool $wrapped
     ): string {
         if (!defined('static::NormalPattern')) {
-            throw Exceptional::Setup('Normal pattern has not been defined');
+            throw Exceptional::Setup(
+                message: 'Normal pattern has not been defined'
+            );
         }
 
         $output = static::NormalPattern;
@@ -177,7 +180,9 @@ trait ReferenceTrait
     public static function getNormalMaxLength(): int
     {
         if (!defined('static::NormalMaxLength')) {
-            throw Exceptional::Setup('Normal max length has not been defined');
+            throw Exceptional::Setup(
+                message: 'Normal max length has not been defined'
+            );
         }
 
         return static::NormalMaxLength;
@@ -190,7 +195,9 @@ trait ReferenceTrait
     public static function getExample(): static
     {
         if (!defined('static::Example')) {
-            throw Exceptional::Setup('Example has not been defined');
+            throw Exceptional::Setup(
+                message: 'Example has not been defined'
+            );
         }
 
         return new static(static::Example);
@@ -343,7 +350,10 @@ trait ReferenceTrait
         string $value
     ): string {
         if (!$matches = $this->matchParts($value)) {
-            throw Exceptional::UnexpectedValue('Unable to match canonical value', null, $value);
+            throw Exceptional::UnexpectedValue(
+                message: 'Unable to match canonical value',
+                data: $value
+            );
         }
 
         return $this->formatNormalizedMatches($matches);
@@ -379,7 +389,7 @@ trait ReferenceTrait
                 }
             }
 
-            $this->html = Html::raw((string)$this->html);
+            $this->html = new Buffer((string)$this->html);
         }
 
         return $this->html;
@@ -393,7 +403,10 @@ trait ReferenceTrait
         string $value
     ): Markup {
         if (!$matches = $this->matchParts($value)) {
-            throw Exceptional::UnexpectedValue('Unable to match canonical value', null, $value);
+            throw Exceptional::UnexpectedValue(
+                message: 'Unable to match canonical value',
+                data: $value
+            );
         }
 
         return $this->formatHtmlMatches($matches);
@@ -402,12 +415,12 @@ trait ReferenceTrait
     /**
      * Combine match parts
      *
-     * @param array<string> $matches
+     * @param list<string> $matches
      */
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number'}($this->formatCanonicalMatches($matches));
+        return Element::create('samp.number', $this->formatCanonicalMatches($matches));
     }
 
     /**
@@ -416,7 +429,7 @@ trait ReferenceTrait
     protected function prepareRawErrorHtml(
         string $raw
     ): Markup {
-        return Html::{'samp.error.invalid'}($raw);
+        return Element::create('samp.error.invalid', $raw);
     }
 
     /**
@@ -424,9 +437,9 @@ trait ReferenceTrait
      */
     protected function checkTagged(): void
     {
-        if (!class_exists(Html::class)) {
+        if (!class_exists(Tagged::class)) {
             throw Exceptional::ComponentUnavailable(
-                'Unable to generate HTML - Tagged library is not available'
+                message: 'Unable to generate HTML - Tagged library is not available'
             );
         }
     }
@@ -436,7 +449,7 @@ trait ReferenceTrait
     /**
      * Match token parts
      *
-     * @return array<string>|null
+     * @return list<string>|null
      */
     protected function matchParts(
         string $value
@@ -445,6 +458,7 @@ trait ReferenceTrait
             return null;
         }
 
+        /** @var list<string> $matches */
         array_shift($matches);
         return $matches;
     }

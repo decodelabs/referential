@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Music;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class Iswc implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([A-Z])([0-9]{3})([0-9]{3})([0-9]{3})([0-9])$/';
-    protected const CanonicalMaxLength = 11;
-    protected const NormalPattern = '/^([a-zA-Z])\-?([0-9]{3})\.?([0-9]{3})\.?([0-9]{3})\-?([0-9])$/';
-    protected const NormalMaxLength = 15;
-    protected const Example = 'T3452468001';
+    public const string CanonicalPattern = '/^([A-Z])([0-9]{3})([0-9]{3})([0-9]{3})([0-9])$/';
+    public const int CanonicalMaxLength = 11;
+    public const string NormalPattern = '/^([a-zA-Z])\-?([0-9]{3})\.?([0-9]{3})\.?([0-9]{3})\-?([0-9])$/';
+    public const int NormalMaxLength = 15;
+    public const string Example = 'T3452468001';
 
     /**
      * Combine match parts
@@ -43,16 +43,16 @@ class Iswc implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.music.iswc'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
-            yield Html::{'span.grammar'}('-');
-            yield Html::{'span.value'}($matches[1]);
-            yield Html::{'span.grammar'}('.');
-            yield Html::{'span.value'}($matches[2]);
-            yield Html::{'span.grammar'}('.');
-            yield Html::{'span.value'}($matches[3]);
-            yield Html::{'span.grammar'}('-');
-            yield Html::{'span.value'}($matches[4]);
+        return Element::create('samp.number.music.iswc', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
+            yield Element::create('span.grammar', '-');
+            yield Element::create('span.value', $matches[1]);
+            yield Element::create('span.grammar', '.');
+            yield Element::create('span.value', $matches[2]);
+            yield Element::create('span.grammar', '.');
+            yield Element::create('span.value', $matches[3]);
+            yield Element::create('span.grammar', '-');
+            yield Element::create('span.value', $matches[4]);
         }, [
             'title' => $this->canonical
         ]);

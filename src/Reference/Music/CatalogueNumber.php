@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Music;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class CatalogueNumber implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([A-Z])([A-Z0-9 ]{2,})$/';
-    protected const CanonicalMaxLength = 32;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = 'XCD023';
+    public const string CanonicalPattern = '/^([A-Z])([A-Z0-9 ]{2,})$/';
+    public const int CanonicalMaxLength = 32;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = 'XCD023';
 
     /**
      * Prepare canonical string
@@ -52,8 +52,8 @@ class CatalogueNumber implements Reference
     protected function prepareHtml(
         string $value
     ): Markup {
-        return Html::{'samp.number.music.catalogue'}(function () use ($value) {
-            yield Html::{'span.value'}($this->prepareNormalized($value));
+        return Element::create('samp.number.music.catalogue', function () use ($value) {
+            yield Element::create('span.value', $this->prepareNormalized($value));
         }, [
             'title' => $this->canonical
         ]);
