@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class Slug implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([a-z0-9-]{3,})$/';
-    protected const CanonicalMaxLength = 128;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = 'interesting-article-title';
+    public const string CanonicalPattern = '/^([a-z0-9-]{3,})$/';
+    public const int CanonicalMaxLength = 128;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = 'interesting-article-title';
 
     /**
      * Prepare canonical string
@@ -44,7 +44,7 @@ class Slug implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.slug'}($matches[0], [
+        return Element::create('samp.slug', $matches[0], [
             'title' => $this->canonical
         ]);
     }

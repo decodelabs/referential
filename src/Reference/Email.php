@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class Email implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([^@\s]+)(@)([^@\s\.]+\.[^@\s]+)$/';
-    protected const CanonicalMaxLength = 2048;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = 'test@example.com';
+    public const string CanonicalPattern = '/^([^@\s]+)(@)([^@\s\.]+\.[^@\s]+)$/';
+    public const int CanonicalMaxLength = 2048;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = 'test@example.com';
 
     /**
      * Prepare canonical string
@@ -48,7 +48,7 @@ class Email implements Reference
     protected function prepareHtml(
         string $value
     ): Markup {
-        return Html::{'a.email'}($this->prepareNormalized($value), [
+        return Element::create('a.email', $this->prepareNormalized($value), [
             'href' => 'mailto:' . $value
         ]);
     }

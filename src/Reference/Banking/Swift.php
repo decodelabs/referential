@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Banking;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class Swift implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([a-zA-Z]{4})([a-zA-Z]{2})([0-9a-zA-Z]{2})([0-9a-zA-Z]{3})?$/';
-    protected const CanonicalMaxLength = 11;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = 'BOFAUS3N';
+    public const string CanonicalPattern = '/^([a-zA-Z]{4})([a-zA-Z]{2})([0-9a-zA-Z]{2})([0-9a-zA-Z]{3})?$/';
+    public const int CanonicalMaxLength = 11;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = 'BOFAUS3N';
 
 
     /**
@@ -33,11 +33,11 @@ class Swift implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.banking.swift'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
-            yield Html::{'span.value'}($matches[1]);
-            yield Html::{'span.value'}($matches[2]);
-            yield Html::{'?span.value'}($matches[3] ?? null);
+        return Element::create('samp.number.banking.swift', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
+            yield Element::create('span.value', $matches[1]);
+            yield Element::create('span.value', $matches[2]);
+            yield Element::create('?span.value', $matches[3] ?? null);
         }, [
             'title' => $this->canonical
         ]);

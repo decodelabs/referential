@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Commerce;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class Upc implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([0-9]{12,13})$/';
-    protected const CanonicalMaxLength = 13;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = '0799439112766';
+    public const string CanonicalPattern = '/^([0-9]{12,13})$/';
+    public const int CanonicalMaxLength = 13;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = '0799439112766';
 
     /**
      * Convert canonical to html value
@@ -32,8 +32,8 @@ class Upc implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.commerce.upc'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
+        return Element::create('samp.number.commerce.upc', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
         }, [
             'title' => $this->canonical
         ]);

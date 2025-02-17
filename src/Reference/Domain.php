@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class Domain implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([^@\s\.]+\.[^@\s]{2,})$/';
-    protected const CanonicalMaxLength = 2048;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = 'example.com';
+    public const string CanonicalPattern = '/^([^@\s\.]+\.[^@\s]{2,})$/';
+    public const int CanonicalMaxLength = 2048;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = 'example.com';
 
     /**
      * Prepare canonical string
@@ -48,7 +48,7 @@ class Domain implements Reference
     protected function prepareHtml(
         string $value
     ): Markup {
-        return Html::{'a.domain'}($this->prepareNormalized($value), [
+        return Element::create('a.domain', $this->prepareNormalized($value), [
             'href' => 'https://' . $value,
             'title' => $this->canonical
         ]);

@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference\Music;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class PrsTunecode implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([0-9]{4,6})([a-zA-Z0-9])([a-zA-Z])$/';
-    protected const CanonicalMaxLength = 8;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = '083657CV';
+    public const string CanonicalPattern = '/^([0-9]{4,6})([a-zA-Z0-9])([a-zA-Z])$/';
+    public const int CanonicalMaxLength = 8;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = '083657CV';
 
     /**
      * Prepare canonical string
@@ -46,9 +46,9 @@ class PrsTunecode implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.music.prs-tunecode'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0]);
-            yield Html::{'span.value'}($matches[1] . $matches[2]);
+        return Element::create('samp.number.music.prs-tunecode', function () use ($matches) {
+            yield Element::create('span.value', $matches[0]);
+            yield Element::create('span.value', $matches[1] . $matches[2]);
         }, [
             'title' => $this->canonical
         ]);

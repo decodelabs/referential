@@ -11,18 +11,18 @@ namespace DecodeLabs\Referential\Reference;
 
 use DecodeLabs\Referential\Reference;
 use DecodeLabs\Referential\ReferenceTrait;
-use DecodeLabs\Tagged as Html;
+use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
 class InitialKey implements Reference
 {
     use ReferenceTrait;
 
-    protected const CanonicalPattern = '/^([A-Z])([A-Z0-9]{2,})$/';
-    protected const CanonicalMaxLength = 12;
-    protected const NormalPattern = self::CanonicalPattern;
-    protected const NormalMaxLength = self::CanonicalMaxLength;
-    protected const Example = 'MTR1';
+    public const string CanonicalPattern = '/^([A-Z])([A-Z0-9]{2,})$/';
+    public const int CanonicalMaxLength = 12;
+    public const string NormalPattern = self::CanonicalPattern;
+    public const int NormalMaxLength = self::CanonicalMaxLength;
+    public const string Example = 'MTR1';
 
     /**
      * Convert canonical to html value
@@ -32,8 +32,8 @@ class InitialKey implements Reference
     protected function formatHtmlMatches(
         array $matches
     ): Markup {
-        return Html::{'samp.number.initial'}(function () use ($matches) {
-            yield Html::{'span.value'}($matches[0] . $matches[1]);
+        return Element::create('samp.number.initial', function () use ($matches) {
+            yield Element::create('span.value', $matches[0] . $matches[1]);
         }, [
             'title' => $this->canonical
         ]);
