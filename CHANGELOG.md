@@ -1,3 +1,6 @@
+## v0.3.1 (2025-02-18)
+* Fixed check for Tagged
+
 ## v0.3.0 (2025-02-17)
 * Added @phpstan-require-implements constraints
 * Converted Html:: access to Element::create()

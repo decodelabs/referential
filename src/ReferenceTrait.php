@@ -11,6 +11,7 @@ namespace DecodeLabs\Referential;
 
 use Closure;
 use DecodeLabs\Exceptional;
+use DecodeLabs\Tagged;
 use DecodeLabs\Tagged\Buffer;
 use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
