@@ -1,3 +1,5 @@
+* Upgraded Tagged dependency
+
 ## v0.3.1 (2025-02-18)
 * Fixed check for Tagged
 

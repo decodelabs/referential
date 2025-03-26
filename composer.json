@@ -13,7 +13,7 @@
         "decodelabs/exceptional": "^0.5.3"
     },
     "require-dev": {
-        "decodelabs/tagged": "^0.16",
+        "decodelabs/tagged": "^0.17",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "suggest": {
