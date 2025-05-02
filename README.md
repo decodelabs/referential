@@ -11,8 +11,6 @@
 
 Referential provides a generalist approach to handling ID references. It enables a consistent way of working with keys across multiple data sources and formats.
 
-_Get news and updates on the [DecodeLabs blog](https://blog.decodelabs.com)._
-
 ---
 
 ## Installation

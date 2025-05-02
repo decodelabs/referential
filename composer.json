@@ -13,7 +13,7 @@
         "decodelabs/exceptional": "^0.5.3"
     },
     "require-dev": {
-        "decodelabs/tagged": "^0.16",
+        "decodelabs/tagged": "^0.20",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "suggest": {
@@ -26,7 +26,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "0.3.x-dev"
+            "dev-develop": "0.4.x-dev"
         }
     },
     "config": {

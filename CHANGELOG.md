@@ -1,3 +1,7 @@
+## v0.4.0 (2025-05-02)
+* Renamed Guid to Uuid
+* Upgraded Tagged dependency
+
 ## v0.3.1 (2025-02-18)
 * Fixed check for Tagged
 
