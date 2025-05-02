@@ -14,7 +14,7 @@ use DecodeLabs\Referential\ReferenceTrait;
 use DecodeLabs\Tagged\Element;
 use DecodeLabs\Tagged\Markup;
 
-class Guid implements Reference
+class Uuid implements Reference
 {
     use ReferenceTrait {
         ReferenceTrait::instantiate as parentInstantiate;
