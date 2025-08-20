@@ -25,8 +25,6 @@ class Isrc implements Reference
     public const string Example = 'USRC17607839';
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -36,8 +34,6 @@ class Isrc implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

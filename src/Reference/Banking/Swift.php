@@ -26,8 +26,6 @@ class Swift implements Reference
 
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

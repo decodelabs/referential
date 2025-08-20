@@ -24,9 +24,6 @@ class PrsTunecode implements Reference
     public const int NormalMaxLength = self::CanonicalMaxLength;
     public const string Example = '083657CV';
 
-    /**
-     * Prepare canonical string
-     */
     protected function prepareCanonicalString(
         string $value
     ): string {
@@ -39,8 +36,6 @@ class PrsTunecode implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

@@ -24,9 +24,7 @@ class Slug implements Reference
     public const int NormalMaxLength = self::CanonicalMaxLength;
     public const string Example = 'interesting-article-title';
 
-    /**
-     * Prepare canonical string
-     */
+
     protected function prepareCanonicalString(
         string $value
     ): string {
@@ -37,8 +35,6 @@ class Slug implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

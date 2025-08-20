@@ -32,10 +32,6 @@ class Uuid implements Reference
     public const string Example = 'd2516786-28da-c4d4-f701-30df4b2159d9';
 
 
-
-    /**
-     * Prepare canonical string
-     */
     protected function prepareCanonicalString(
         string $value
     ): string {
@@ -44,8 +40,6 @@ class Uuid implements Reference
     }
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatCanonicalMatches(
@@ -55,8 +49,6 @@ class Uuid implements Reference
     }
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -66,8 +58,6 @@ class Uuid implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

@@ -25,8 +25,6 @@ class Iswc implements Reference
     public const string Example = 'T3452468001';
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -36,8 +34,6 @@ class Iswc implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

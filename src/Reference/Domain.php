@@ -24,27 +24,18 @@ class Domain implements Reference
     public const int NormalMaxLength = self::CanonicalMaxLength;
     public const string Example = 'example.com';
 
-    /**
-     * Prepare canonical string
-     */
     protected function prepareCanonicalString(
         string $value
     ): string {
         return strtolower($value);
     }
 
-    /**
-     * Convert canonical to formatted value
-     */
     protected function prepareNormalized(
         string $value
     ): string {
         return trim($value);
     }
 
-    /**
-     * Convert canonical to formatted value
-     */
     protected function prepareHtml(
         string $value
     ): Markup {

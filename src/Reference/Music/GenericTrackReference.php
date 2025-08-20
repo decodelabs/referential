@@ -25,8 +25,6 @@ class GenericTrackReference implements Reference
     public const string Example = '123456';
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

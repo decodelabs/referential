@@ -24,9 +24,6 @@ class CatalogueNumber implements Reference
     public const int NormalMaxLength = self::CanonicalMaxLength;
     public const string Example = 'XCD023';
 
-    /**
-     * Prepare canonical string
-     */
     protected function prepareCanonicalString(
         string $value
     ): string {
@@ -37,18 +34,12 @@ class CatalogueNumber implements Reference
         return $value;
     }
 
-    /**
-     * Convert canonical to formatted value
-     */
     protected function prepareNormalized(
         string $value
     ): string {
         return strtoupper(trim($this->raw));
     }
 
-    /**
-     * Convert canonical to formatted value
-     */
     protected function prepareHtml(
         string $value
     ): Markup {

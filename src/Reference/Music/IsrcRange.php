@@ -25,8 +25,6 @@ class IsrcRange implements Reference
     public const string Example = 'GBMYV';
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -36,8 +34,6 @@ class IsrcRange implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

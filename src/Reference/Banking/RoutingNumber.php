@@ -26,8 +26,6 @@ class RoutingNumber implements Reference
 
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -37,8 +35,6 @@ class RoutingNumber implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

@@ -25,8 +25,6 @@ class UkNationalInsurance implements Reference
     public const string Example = 'TN311258F';
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -36,8 +34,6 @@ class UkNationalInsurance implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

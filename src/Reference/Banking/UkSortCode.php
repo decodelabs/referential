@@ -25,8 +25,6 @@ class UkSortCode implements Reference
     public const string Example = '12-34-56';
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -36,8 +34,6 @@ class UkSortCode implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

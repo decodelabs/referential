@@ -25,8 +25,6 @@ class Upc implements Reference
     public const string Example = '0799439112766';
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(

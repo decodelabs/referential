@@ -25,8 +25,6 @@ class Iban implements Reference
     public const string Example = 'BE71 0961 2345 6769 45';
 
     /**
-     * Combine match parts
-     *
      * @param array<string> $matches
      */
     protected function formatNormalizedMatches(
@@ -36,8 +34,6 @@ class Iban implements Reference
     }
 
     /**
-     * Convert canonical to html value
-     *
      * @param array<string> $matches
      */
     protected function formatHtmlMatches(
@@ -56,8 +52,6 @@ class Iban implements Reference
     }
 
     /**
-     * Match token parts
-     *
      * @return array<string>|null
      */
     protected function matchParts(
