@@ -15,6 +15,8 @@ Referential provides a generalist approach to handling ID references. It enables
 
 ## Installation
 
+This package requires PHP 8.4 or higher.
+
 Install via Composer:
 
 ```bash
